@@ -12,11 +12,11 @@
     let bubbles = [];
     let holder;
 
-    // pastel fills: sky, blush, butter, white
+    // Badtz-Maru fills: penguin black, yellow, orange beak, white
     const PALETTE = [
-      [174, 228, 255],
-      [255, 214, 232],
-      [255, 233, 168],
+      [27, 27, 34],
+      [255, 210, 30],
+      [255, 138, 61],
       [255, 255, 255],
     ];
 
@@ -72,11 +72,13 @@
           }
         }
 
-        // draw bubble with soft highlight
-        p.noStroke();
+        // draw bubble with dark outline + soft highlight
+        p.stroke(21, 21, 28, b.alpha);
+        p.strokeWeight(2);
         p.fill(b.col[0], b.col[1], b.col[2], b.alpha);
         p.circle(b.x, b.y, b.r * 2);
-        p.fill(255, 255, 255, b.alpha * 0.7);
+        p.noStroke();
+        p.fill(255, 255, 255, b.alpha * 0.55);
         p.circle(b.x - b.r * 0.3, b.y - b.r * 0.3, b.r * 0.5);
       }
     };

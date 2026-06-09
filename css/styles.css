@@ -1,31 +1,42 @@
 /* =========================================================
-   Cinnamoroll-inspired Digital Humanities Portfolio
-   Palette tokens, layout, components, responsive rules
+   Badtz-Maru-inspired Digital Humanities Portfolio
+   Bold black + white + yellow palette, star/penguin motifs,
+   sticker-style outlines. Layout/classnames unchanged.
    ========================================================= */
 
 :root {
-  /* --- Cinnamoroll palette --- */
-  --sky: #aee4ff;
-  --sky-soft: #d8f1ff;
-  --sky-deep: #7cc6f0;
-  --cloud: #ffffff;
-  --cream: #fdfbf6;
-  --butter: #ffe9a8;
-  --butter-deep: #f7d780;
-  --blush: #ffd6e8;
-  --cocoa: #6b5b73;
-  --ink: #4a4a5a;
+  /* --- Badtz-Maru palette --- */
+  --coal: #15151c;        /* deepest black: nav, footer, outlines */
+  --ink: #20202a;         /* body text */
+  --cocoa: #1b1b24;       /* headings (kept name for compatibility) */
+  --steel: #5c6470;       /* muted text */
+
+  --cloud: #ffffff;       /* white surfaces (kept name) */
+  --cream: #f3f3f1;       /* page background */
+
+  --yolk: #ffd21e;        /* primary yellow accent (beak/feet) */
+  --butter: #ffd21e;      /* alias kept for compatibility */
+  --butter-deep: #f2b705; /* deeper gold */
+  --gold: #c98a00;        /* readable gold for links on white */
+  --beak: #ff8a3d;        /* orange pop */
+
+  --sky: #ffd21e;         /* alias (kept name) */
+  --sky-soft: #fff4c2;    /* soft yellow chips/borders */
+  --sky-deep: #c98a00;    /* alias -> gold links/accents */
+  --blush: #d2d6df;       /* cool gray secondary */
 
   /* --- shape & motion --- */
-  --radius: 20px;
-  --radius-lg: 32px;
+  --radius: 18px;
+  --radius-lg: 28px;
   --radius-pill: 999px;
-  --shadow-soft: 0 10px 30px rgba(124, 198, 240, 0.25);
-  --shadow-card: 0 8px 24px rgba(124, 198, 240, 0.18);
+  --shadow-card: 4px 4px 0 rgba(21, 21, 28, 0.12);
+  --shadow-soft: 6px 6px 0 rgba(21, 21, 28, 0.16);
   --ease: cubic-bezier(0.34, 1.56, 0.64, 1);
 
+  --star: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+
   --maxw: 1080px;
-  --font-head: "Quicksand", "Trebuchet MS", sans-serif;
+  --font-head: "Baloo 2", "Quicksand", "Trebuchet MS", sans-serif;
   --font-body: "Nunito", system-ui, sans-serif;
 }
 
@@ -41,7 +52,7 @@ body {
   font-family: var(--font-body);
   color: var(--ink);
   line-height: 1.65;
-  background: linear-gradient(180deg, var(--sky-soft) 0%, var(--cream) 60%);
+  background: linear-gradient(180deg, #ffffff 0%, var(--cream) 70%);
   overflow-x: hidden;
 }
 
@@ -52,7 +63,7 @@ h1, h2, h3, .nav__name {
   color: var(--cocoa);
 }
 
-a { color: var(--sky-deep); }
+a { color: var(--gold); }
 
 img { max-width: 100%; display: block; }
 
@@ -70,7 +81,8 @@ img { max-width: 100%; display: block; }
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--cloud);
+  background: var(--yolk);
+  color: var(--coal);
   padding: 0.6rem 1rem;
   border-radius: var(--radius);
   z-index: 200;
@@ -78,7 +90,7 @@ img { max-width: 100%; display: block; }
 .skip-link:focus { left: 12px; top: 12px; }
 
 /* =========================================================
-   Navigation
+   Navigation (dark bar — cool Badtz-Maru vibe)
    ========================================================= */
 .nav {
   position: sticky;
@@ -89,10 +101,10 @@ img { max-width: 100%; display: block; }
   justify-content: space-between;
   gap: 1rem;
   padding: 0.75rem clamp(1rem, 4vw, 2.5rem);
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(21, 21, 28, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 2px solid var(--sky-soft);
+  border-bottom: 3px solid var(--yolk);
 }
 
 .nav__brand {
@@ -101,28 +113,16 @@ img { max-width: 100%; display: block; }
   gap: 0.55rem;
   text-decoration: none;
 }
-.nav__name { font-size: 1.25rem; color: var(--cocoa); }
+.nav__name { font-size: 1.3rem; color: #ffffff; }
 
-/* little cloud mark */
+/* star mark (was cloud) */
 .nav__cloud {
-  width: 34px;
-  height: 22px;
-  background: var(--cloud);
-  border-radius: var(--radius-pill);
-  position: relative;
-  box-shadow: var(--shadow-card);
+  width: 28px;
+  height: 28px;
+  background: var(--yolk);
+  clip-path: var(--star);
   flex: 0 0 auto;
 }
-.nav__cloud::before,
-.nav__cloud::after {
-  content: "";
-  position: absolute;
-  background: var(--cloud);
-  border-radius: 50%;
-  bottom: 2px;
-}
-.nav__cloud::before { width: 16px; height: 16px; left: 4px; }
-.nav__cloud::after { width: 13px; height: 13px; right: 5px; }
 
 .nav__menu {
   display: flex;
@@ -130,14 +130,14 @@ img { max-width: 100%; display: block; }
 }
 .nav__menu a {
   text-decoration: none;
-  color: var(--cocoa);
-  font-weight: 600;
-  padding: 0.35rem 0.6rem;
+  color: #f3f3f1;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
   border-radius: var(--radius-pill);
   transition: background 0.25s var(--ease), color 0.25s var(--ease);
 }
 .nav__menu a:hover,
-.nav__menu a:focus-visible { background: var(--blush); color: var(--ink); }
+.nav__menu a:focus-visible { background: var(--yolk); color: var(--coal); }
 
 .nav__toggle {
   display: none;
@@ -151,7 +151,7 @@ img { max-width: 100%; display: block; }
 .nav__toggle span {
   width: 26px;
   height: 3px;
-  background: var(--sky-deep);
+  background: var(--yolk);
   border-radius: 3px;
   transition: transform 0.3s var(--ease), opacity 0.3s;
 }
@@ -181,16 +181,17 @@ img { max-width: 100%; display: block; }
   position: relative;
   z-index: 1;
   max-width: 720px;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   padding: clamp(1.5rem, 4vw, 3rem);
+  border: 3px solid var(--coal);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
 }
 .hero__eyebrow {
-  color: var(--sky-deep);
-  font-weight: 700;
+  color: var(--gold);
+  font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin: 0 0 0.5rem;
@@ -200,9 +201,11 @@ img { max-width: 100%; display: block; }
 .hero__tagline {
   font-family: var(--font-head);
   font-size: clamp(1.1rem, 3vw, 1.5rem);
-  color: var(--sky-deep);
+  color: var(--ink);
   margin: 0 0 1rem;
 }
+.hero__tagline::before,
+.hero__tagline::after { content: " ★ "; color: var(--yolk); }
 .hero__intro { font-size: 1.05rem; margin: 0 auto 1.75rem; max-width: 52ch; }
 
 .hero__cta {
@@ -213,29 +216,26 @@ img { max-width: 100%; display: block; }
 }
 
 /* =========================================================
-   Buttons
+   Buttons (sticker style)
    ========================================================= */
 .btn {
   display: inline-block;
   font-family: var(--font-head);
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   padding: 0.7rem 1.5rem;
+  border: 2.5px solid var(--coal);
   border-radius: var(--radius-pill);
-  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
-}
-.btn:hover, .btn:focus-visible { transform: translateY(-3px) scale(1.03); }
-.btn--primary {
-  background: var(--butter);
-  color: var(--cocoa);
-  box-shadow: 0 6px 16px rgba(247, 215, 128, 0.55);
-}
-.btn--primary:hover { background: var(--butter-deep); }
-.btn--ghost {
-  background: var(--cloud);
-  color: var(--sky-deep);
   box-shadow: var(--shadow-card);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
+.btn:hover, .btn:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-soft);
+}
+.btn--primary { background: var(--yolk); color: var(--coal); }
+.btn--primary:hover { background: var(--butter-deep); }
+.btn--ghost { background: var(--cloud); color: var(--coal); }
 
 /* =========================================================
    Section shell
@@ -252,24 +252,23 @@ img { max-width: 100%; display: block; }
   position: relative;
 }
 .section__title::after {
-  content: "❀";
+  content: "★";
   display: block;
-  color: var(--blush);
+  color: var(--yolk);
   font-size: 1.2rem;
   margin-top: 0.25rem;
+  text-shadow: 0 0 0 var(--coal);
 }
 .section__lede { text-align: center; margin: 0 auto 2.5rem; max-width: 60ch; }
 
-/* --- cloud divider --- */
+/* --- star divider (was clouds) --- */
 .divider--clouds {
-  height: 60px;
+  height: 38px;
   background-repeat: repeat-x;
   background-position: center;
-  background-size: 120px 60px;
-  background-image: radial-gradient(circle at 30px 50px, var(--cloud) 22px, transparent 23px),
-                    radial-gradient(circle at 60px 42px, var(--cloud) 30px, transparent 31px),
-                    radial-gradient(circle at 92px 50px, var(--cloud) 22px, transparent 23px);
-  opacity: 0.9;
+  background-size: 34px 34px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffd21e' stroke='%2315151c' stroke-width='1.3' stroke-linejoin='round' d='M12 2.6l2.7 5.8 6.4.6-4.8 4.3 1.4 6.3L12 18l-5.7 1.6 1.4-6.3L2.9 9l6.4-.6z'/%3E%3C/svg%3E");
+  opacity: 0.95;
 }
 
 /* =========================================================
@@ -285,13 +284,12 @@ img { max-width: 100%; display: block; }
   width: 100%;
   aspect-ratio: 1;
   border-radius: var(--radius-lg);
-  background: linear-gradient(160deg, var(--sky-soft), var(--blush));
+  background: linear-gradient(160deg, #2e2e38, var(--coal));
   display: grid;
   place-items: center;
-  font-size: 4rem;
-  color: var(--cloud);
+  font-size: 4.5rem;
   box-shadow: var(--shadow-soft);
-  border: 4px solid var(--cloud);
+  border: 4px solid var(--yolk);
 }
 .about__subhead { margin: 1.5rem 0 0.75rem; }
 
@@ -305,17 +303,18 @@ img { max-width: 100%; display: block; }
   gap: 0.5rem;
 }
 .tag {
-  background: var(--sky-soft);
-  color: var(--cocoa);
-  font-weight: 600;
+  background: var(--yolk);
+  color: var(--coal);
+  font-weight: 700;
   font-size: 0.85rem;
   padding: 0.3rem 0.85rem;
+  border: 2px solid var(--coal);
   border-radius: var(--radius-pill);
 }
-.tags--sm .tag { background: var(--blush); font-size: 0.78rem; }
+.tags--sm .tag { background: var(--cloud); font-size: 0.78rem; }
 
 /* =========================================================
-   Cards (research)
+   Cards (research) — outlined sticker cards
    ========================================================= */
 .cards {
   display: grid;
@@ -327,25 +326,27 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
   padding: 1.5rem;
   box-shadow: var(--shadow-card);
-  border: 2px solid var(--sky-soft);
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  border: 2.5px solid var(--coal);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
 }
-.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-soft); }
+.card:hover { transform: translate(-3px, -3px); box-shadow: var(--shadow-soft); }
 .card__icon {
   width: 48px; height: 48px;
   display: grid; place-items: center;
   border-radius: 50%;
-  background: var(--butter);
-  color: var(--cocoa);
+  background: var(--yolk);
+  color: var(--coal);
+  border: 2.5px solid var(--coal);
   font-size: 1.4rem;
 }
 .card__title { margin: 0; font-size: 1.2rem; }
 .card__blurb { margin: 0; flex: 1; }
 .card__link {
-  font-weight: 700;
+  font-weight: 800;
+  color: var(--gold);
   text-decoration: none;
   align-self: start;
   margin-top: 0.25rem;
@@ -358,7 +359,10 @@ img { max-width: 100%; display: block; }
 .pub__group {
   margin: 2rem 0 0.75rem;
   font-size: 1.25rem;
-  color: var(--sky-deep);
+  color: var(--cocoa);
+  border-bottom: 3px solid var(--yolk);
+  display: inline-block;
+  padding-bottom: 2px;
 }
 .pub__list {
   list-style: none;
@@ -367,11 +371,11 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  counter-reset: pub;
 }
 .pub {
   background: var(--cloud);
-  border-left: 5px solid var(--blush);
+  border: 2px solid var(--coal);
+  border-left: 6px solid var(--yolk);
   border-radius: 0 var(--radius) var(--radius) 0;
   padding: 0.9rem 1.1rem;
   box-shadow: var(--shadow-card);
@@ -382,42 +386,38 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 .pub__doi {
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
   font-size: 0.85rem;
-  background: var(--sky-soft);
+  background: var(--yolk);
+  color: var(--coal);
   padding: 0.2rem 0.7rem;
+  border: 2px solid var(--coal);
   border-radius: var(--radius-pill);
   white-space: nowrap;
 }
 .cv-cta { text-align: center; margin-top: 2.5rem; }
 
 /* =========================================================
-   Footer
+   Footer (dark)
    ========================================================= */
 .footer {
   text-align: center;
   padding: clamp(3rem, 8vw, 5rem) 1.5rem 3rem;
-  background: linear-gradient(180deg, transparent, var(--sky-soft));
+  background: var(--coal);
+  color: #f3f3f1;
+  border-top: 3px solid var(--yolk);
   position: relative;
 }
 .footer__cloud {
   display: inline-block;
-  width: 56px; height: 34px;
-  background: var(--cloud);
-  border-radius: var(--radius-pill);
-  position: relative;
+  width: 46px; height: 46px;
+  background: var(--yolk);
+  clip-path: var(--star);
   margin-bottom: 0.5rem;
-  box-shadow: var(--shadow-card);
 }
-.footer__cloud::before,
-.footer__cloud::after {
-  content: ""; position: absolute; background: var(--cloud); border-radius: 50%; bottom: 4px;
-}
-.footer__cloud::before { width: 26px; height: 26px; left: 6px; }
-.footer__cloud::after { width: 20px; height: 20px; right: 8px; }
-.footer__title { margin: 0.25rem 0; }
-.footer__email a { font-size: 1.15rem; font-weight: 700; }
+.footer__title { margin: 0.25rem 0; color: #ffffff; }
+.footer__email a { font-size: 1.15rem; font-weight: 800; color: var(--yolk); }
 .footer__links {
   display: flex;
   gap: 1rem;
@@ -427,16 +427,16 @@ img { max-width: 100%; display: block; }
 }
 .footer__links a {
   text-decoration: none;
-  font-weight: 600;
-  color: var(--cocoa);
+  font-weight: 700;
+  color: var(--coal);
   background: var(--cloud);
   padding: 0.4rem 1rem;
+  border: 2px solid var(--yolk);
   border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-card);
-  transition: transform 0.25s var(--ease);
+  transition: transform 0.25s var(--ease), background 0.25s var(--ease);
 }
-.footer__links a:hover { transform: translateY(-3px); }
-.footer__note { font-size: 0.85rem; color: var(--cocoa); margin-top: 1rem; }
+.footer__links a:hover { transform: translateY(-3px); background: var(--yolk); }
+.footer__note { font-size: 0.85rem; color: #b9bcc4; margin-top: 1rem; }
 
 /* =========================================================
    Scroll reveal
@@ -461,8 +461,8 @@ img { max-width: 100%; display: block; }
     flex-direction: column;
     gap: 0.25rem;
     padding: 1rem clamp(1rem, 4vw, 2.5rem);
-    background: rgba(255, 255, 255, 0.96);
-    border-bottom: 2px solid var(--sky-soft);
+    background: rgba(21, 21, 28, 0.97);
+    border-bottom: 3px solid var(--yolk);
     box-shadow: var(--shadow-card);
     transform: scaleY(0);
     transform-origin: top;

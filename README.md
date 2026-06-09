@@ -1,18 +1,19 @@
-# ☁︎ Digital Humanities Portfolio
+# ★ Digital Humanities Portfolio
 
 A responsive, cute academic portfolio for a digital humanities scholar, with a
-**Cinnamoroll-inspired sky-blue Sanrio palette** and lots of **p5.js animation**.
+**Badtz-Maru-inspired black + white + yellow Sanrio palette** and lots of
+**p5.js animation**.
 
 Built as a plain static site — no build step, no framework — so it's easy to
 edit and deploys straight to GitHub Pages.
 
 ## ✨ Features
 
-- **Sky-blue Sanrio aesthetic** — pastel palette, rounded shapes, cloud motifs,
-  soft shadows, friendly rounded fonts (Quicksand + Nunito).
+- **Badtz-Maru aesthetic** — bold black/white/yellow palette, star and penguin
+  motifs, sticker-style outlines, chunky rounded fonts (Baloo 2 + Nunito).
 - **p5.js animation** (instance mode, loaded via CDN):
-  - `js/sketch-bg.js` — full-page drifting clouds, twinkling sparkles, and a
-    soft sky gradient with subtle scroll parallax.
+  - `js/sketch-bg.js` — drifting soft-gray clouds, twinkling yellow stars, and a
+    near-white gradient with subtle scroll parallax.
   - `js/sketch-hero.js` — interactive floating bubbles that drift, dodge your
     cursor, and pop on click/tap.
 - **Responsive** — mobile-first, fluid type with `clamp()`, CSS Grid, and a

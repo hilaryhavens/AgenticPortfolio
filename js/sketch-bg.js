@@ -12,9 +12,9 @@
     let sparkles = [];
     let scrollY = 0;
 
-    // palette
-    const SKY_TOP = [216, 241, 255];   // --sky-soft
-    const SKY_BOT = [253, 251, 246];   // --cream
+    // palette (Badtz-Maru: near-white sky, soft-gray clouds, yellow stars)
+    const SKY_TOP = [255, 255, 255];
+    const SKY_BOT = [243, 243, 241];   // --cream
 
     function makeClouds() {
       clouds = [];
@@ -50,11 +50,28 @@
       p.translate(c.x, py);
       p.scale(c.scale);
       p.noStroke();
-      p.fill(255, 255, 255, 210);
+      p.fill(228, 230, 235, 150); // soft gray cloud on light bg
       p.ellipse(0, 0, 60, 38);
       p.ellipse(-26, 6, 40, 30);
       p.ellipse(26, 6, 44, 32);
       p.ellipse(0, 10, 80, 30);
+      p.pop();
+    }
+
+    // draw a small 5-point star centered at (x, y)
+    function drawStar(x, y, radius, col, a) {
+      const inner = radius * 0.45;
+      p.push();
+      p.translate(x, y);
+      p.noStroke();
+      p.fill(col[0], col[1], col[2], a);
+      p.beginShape();
+      for (let i = 0; i < 10; i++) {
+        const r = i % 2 === 0 ? radius : inner;
+        const ang = (p.PI / 5) * i - p.HALF_PI;
+        p.vertex(p.cos(ang) * r, p.sin(ang) * r);
+      }
+      p.endShape(p.CLOSE);
       p.pop();
     }
 
@@ -82,13 +99,11 @@
         p.line(0, y, p.width, y);
       }
 
-      // sparkles
-      p.noStroke();
+      // twinkling yellow stars
       for (const s of sparkles) {
         s.phase += s.twinkle;
-        const a = 120 + Math.sin(s.phase) * 110;
-        p.fill(255, 233, 168, a); // butter sparkle
-        p.circle(s.x, s.y, s.r * 2);
+        const a = 110 + Math.sin(s.phase) * 120;
+        drawStar(s.x, s.y, s.r * 2.4, [255, 210, 30], a);
       }
 
       // clouds
