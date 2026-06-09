@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. [Your Name] · Digital Humanities Scholar</title>
+  <meta name="description" content="Academic portfolio of a digital humanities scholar — research, projects, and publications." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Google Fonts: Quicksand (headings) + Nunito (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Global animated background canvas (decorative) -->
+  <div id="bg-canvas" aria-hidden="true"></div>
+
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#hero">Skip to content</a>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="top">
+    <a class="nav__brand" href="#hero">
+      <span class="nav__cloud" aria-hidden="true"></span>
+      <span class="nav__name">[Your Name]</span>
+    </a>
+
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="nav-menu" class="nav__menu">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section id="hero" class="hero">
+      <div id="hero-canvas" class="hero__canvas" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">✿ welcome ✿</p>
+        <h1 class="hero__title">Dr. [Your Name]</h1>
+        <p class="hero__tagline">Digital Humanities Scholar</p>
+        <p class="hero__intro">
+          I study the intersection of culture, computation, and the archive —
+          building tools and telling stories at the seams of humanities and code.
+          <em>(Placeholder intro — edit me!)</em>
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#research">View Research</a>
+          <a class="btn btn--ghost" href="assets/cv-placeholder.pdf" download>Download CV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- cloud divider -->
+    <div class="divider divider--clouds" aria-hidden="true"></div>
+
+    <!-- ===== About ===== -->
+    <section id="about" class="section reveal">
+      <h2 class="section__title">About</h2>
+      <div class="about">
+        <div class="about__photo">
+          <div class="about__photo-frame" role="img" aria-label="Portrait placeholder">
+            <span aria-hidden="true">☁︎</span>
+          </div>
+        </div>
+        <div class="about__body">
+          <p>
+            With Jessica Richard, Susan Egenolf, and Robin Runia, I am one of
+            the editors of <a href="#"><em>Maria Edgeworth Letters</em></a>, an
+            NEH-funded digital edition of the correspondence of Maria Edgeworth.
+            Members of the public can contribute to this project by transcribing
+            Edgeworth’s letters through the Zooniverse platform.
+          </p>
+          <p>
+            I am the author of <em>Revising the Eighteenth-Century Novel:
+            Authorship from Manuscript to Print</em> (Cambridge UP, 2019); the
+            editor of <em>Didactic Novels and British Women’s Writing,
+            1790–1820</em> (Routledge, 2017); and the co-editor of the
+            correspondence of Samuel Richardson and Edward Young, which is
+            forthcoming in volume 8 of the <em>Cambridge Edition of the
+            Correspondence of Samuel Richardson</em>. I am under contract with
+            Cambridge University Press to produce two editions of Frances
+            Burney’s <em>Cecilia</em>, an academic edition and a student edition.
+          </p>
+          <p>
+            My research focuses on intersections between digital humanities,
+            material culture, eighteenth-century literature, the novel, and
+            gender.
+          </p>
+          <h3 class="about__subhead">Research Interests</h3>
+          <ul class="tags">
+            <li class="tag">Text Mining</li>
+            <li class="tag">Network Analysis</li>
+            <li class="tag">Digital Archives</li>
+            <li class="tag">Cultural Analytics</li>
+            <li class="tag">Critical Code Studies</li>
+            <li class="tag">Data Visualization</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Research & Projects ===== -->
+    <section id="research" class="section reveal">
+      <h2 class="section__title">Research &amp; Projects</h2>
+      <p class="section__lede">A selection of digital humanities projects. <em>(Placeholder cards — edit freely.)</em></p>
+      <div class="cards">
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">✦</div>
+          <h3 class="card__title">Mapping the Archive</h3>
+          <p class="card__blurb">
+            An interactive geo-temporal map visualizing the circulation of
+            19th-century pamphlets across regional libraries.
+          </p>
+          <ul class="tags tags--sm">
+            <li class="tag">Leaflet</li>
+            <li class="tag">Python</li>
+            <li class="tag">OCR</li>
+          </ul>
+          <a class="card__link" href="#">View project →</a>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">❀</div>
+          <h3 class="card__title">Voices in the Margins</h3>
+          <p class="card__blurb">
+            A topic-modeling study of marginalia in early modern manuscripts,
+            surfacing reader networks and reading practices.
+          </p>
+          <ul class="tags tags--sm">
+            <li class="tag">LDA</li>
+            <li class="tag">spaCy</li>
+            <li class="tag">D3.js</li>
+          </ul>
+          <a class="card__link" href="#">View project →</a>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">☾</div>
+          <h3 class="card__title">Sound of the Crowd</h3>
+          <p class="card__blurb">
+            Computational analysis of oral-history audio archives, pairing
+            transcription with sentiment over time.
+          </p>
+          <ul class="tags tags--sm">
+            <li class="tag">Whisper</li>
+            <li class="tag">NLP</li>
+            <li class="tag">Audio</li>
+          </ul>
+          <a class="card__link" href="#">View project →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- cloud divider -->
+    <div class="divider divider--clouds" aria-hidden="true"></div>
+
+    <!-- ===== Publications & CV ===== -->
+    <section id="publications" class="section reveal">
+      <h2 class="section__title">Publications &amp; CV</h2>
+
+      <h3 class="pub__group">Journal Articles</h3>
+      <ol class="pub__list">
+        <li class="pub">
+          <span class="pub__cite">
+            [Your Name]. (2025). “Reading at Scale: Distant Methods and Close
+            Care.” <em>Journal of Digital Humanities</em>, 12(3), 45–67.
+          </span>
+          <a class="pub__doi" href="#">DOI</a>
+        </li>
+        <li class="pub">
+          <span class="pub__cite">
+            [Your Name], &amp; Co-Author. (2024). “Archives of the Overlooked.”
+            <em>Cultural Analytics</em>, 8(1), 1–29.
+          </span>
+          <a class="pub__doi" href="#">DOI</a>
+        </li>
+      </ol>
+
+      <h3 class="pub__group">Talks &amp; Presentations</h3>
+      <ol class="pub__list">
+        <li class="pub">
+          <span class="pub__cite">
+            “Building Kind Tools for Cultural Data.” Keynote, DH Conference 2025.
+          </span>
+        </li>
+        <li class="pub">
+          <span class="pub__cite">
+            “Marginalia as Network.” Workshop, Digital Methods Summer School 2024.
+          </span>
+        </li>
+      </ol>
+
+      <div class="cv-cta">
+        <a class="btn btn--primary" href="assets/cv-placeholder.pdf" download>Download full CV (PDF)</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer / Contact ===== -->
+  <footer id="contact" class="footer reveal">
+    <span class="footer__cloud" aria-hidden="true"></span>
+    <h2 class="footer__title">Say hello ☁︎</h2>
+    <p class="footer__email">
+      <a href="mailto:hhavens1@utk.edu">hhavens1@utk.edu</a>
+    </p>
+    <nav class="footer__links" aria-label="Academic profiles">
+      <a href="#">Google Scholar</a>
+      <a href="#">ORCID</a>
+      <a href="#">GitHub</a>
+    </nav>
+    <p class="footer__note">© <span id="year"></span> [Your Name] · Made with ☁ &amp; p5.js</p>
+  </footer>
+
+  <!-- p5.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.2/lib/p5.min.js"></script>
+  <!-- Sketches (instance mode) + site logic -->
+  <script src="js/sketch-bg.js"></script>
+  <script src="js/sketch-hero.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

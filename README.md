@@ -23,7 +23,7 @@ edit and deploys straight to GitHub Pages.
 
 ## 📁 Structure
 
-\`\`\`
+```
 index.html              All sections (Hero, About, Research, Publications/CV, Contact)
 css/styles.css          Palette tokens, layout, components, responsive rules
 js/sketch-bg.js         Global animated background sketch
@@ -33,16 +33,16 @@ assets/favicon.svg      Cloud favicon
 assets/cv-placeholder.pdf  Placeholder CV (replace with your own)
 .github/workflows/deploy-pages.yml  GitHub Pages deploy
 .nojekyll               Skip Jekyll processing on Pages
-\`\`\`
+```
 
 ## 🛠 Run locally
 
 No dependencies. Serve the folder with any static server, e.g.:
 
-\`\`\`bash
+```bash
 python3 -m http.server 8000
 # then open http://localhost:8000
-\`\`\`
+```
 
 ## 🚀 Deploy (GitHub Pages)
 
